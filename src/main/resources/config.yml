@@ -1,6 +1,11 @@
-messages:
-  from-command: "&eHello world from Command."
-  from-listener: "&aHello world from Listener."
-  from-task: "&dHello world from Task."
+interval: 60
 
-task-repeat-every: 3
+announcements:
+  - "\n&c&lHOST: &fNecesitamos &a&l60USD &fpara pagar el servidor,\n&f compra rango en &earkflame.com/tienda&r\n"
+  - "\n&a¿Quieres enterarte de nuestras novedades?\n&e¡Unete a nuestro Discord! &barkflame.com/discord&r\n"
+  - "\n&a¿Grabas videos en &c&lYOUTUBE&a?\n&e¡Postulate con el comando &c/yt&e!&r\n"
+  - "\n&a¿Quieres obtener rango &e&lEPICO&a?\n&e¡Obtenlo con el comando &c/vote&e!&r\n"
+
+messages:
+  permission: "&cYou don't have permission to use this command!"
+  reloaded: "&aPlugin reloaded successfully!"
