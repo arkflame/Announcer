@@ -1,5 +1,7 @@
 package dev._2lstudios.announcer;
 
+import java.io.IOException;
+import java.util.Collection;
 import java.util.concurrent.TimeUnit;
 
 import dev._2lstudios.announcer.commands.AnnouncerCommand;
@@ -15,20 +17,29 @@ public class Announcer extends Plugin {
         return config;
     }
 
-    @Override
-    public void onEnable () {
+    public void load() throws IOException {
         final BungeeConfiguration bungeeConfiguration = new BungeeConfiguration(this, "config.yml");
 
         bungeeConfiguration.saveDefaults();
         config = bungeeConfiguration.load();
 
-        Announcer.instance = this;
-
         this.getCommand("example").setExecutor(new AnnouncerCommand());
 
         final long interval = config.getInt("interval");
+        final Collection<String> announcements = config.getStringList("announcements");
 
         this.getProxy().getScheduler().schedule(this, new AnnouncerTask(), interval, interval, TimeUnit.SECONDS);
+    }
+
+    @Override
+    public void onEnable () {
+        Announcer.instance = this;
+
+        try {
+            load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static Announcer instance;
