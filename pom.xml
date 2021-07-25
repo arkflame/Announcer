@@ -1,37 +1,38 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    
+
     <!-- Project information -->
-    <groupId>me.sammwy</groupId>
-    <artifactId>ExamplePlugin</artifactId>
+    <groupId>dev._2lstudios</groupId>
+    <artifactId>Announcer</artifactId>
     <packaging>jar</packaging>
 
     <!-- Plugin Information -->
-    <name>ExamplePlugin</name>
-    <description>This is just an example plugin</description>
-    <version>0.1</version>
-    <url>https://twitter.com/sammwy</url>
+    <name>Announcer</name>
+    <description>Simple announcer for Bungee</description>
+    <version>0.0.1</version>
+    <url>https://github.com/2lstudios-mc/announcer</url>
 
     <properties>
-        <author>Sammwy</author>
-        <mainClass>me.sammwy.example.ExamplePlugin</mainClass>
+        <author>2LStudios</author>
+        <mainClass>dev._2lstudios.announcer.Announcer</mainClass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-   <!-- External repositories -->
+    <!-- External repositories -->
     <repositories>
         <repository>
-            <id>spigot-repo</id>
-            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+            <id>bungeecord-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </repository>
     </repositories>
 
     <!-- Dependencies imports -->
     <dependencies>
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
-            <version>1.16.4-R0.1-SNAPSHOT</version>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.17-R0.1-SNAPSHOT</version>
+            <type>jar</type>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -75,26 +76,6 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>
-
-            <!-- Include dependencies inside jar -->
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.2.1</version>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id> 
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
